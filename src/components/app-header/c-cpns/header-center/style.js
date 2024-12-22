@@ -12,7 +12,7 @@ export const CenterWrapper = styled.div`
   border-radius: 25px;
   box-sizing: border-box;
   cursor: pointer;
-  ${props => props.theme.mixin.boxShadow}
+  ${props => props.theme.mixin.boxShadow};
   .text {
     padding: 0 16px;
     color: #222;
@@ -26,6 +26,6 @@ export const CenterWrapper = styled.div`
     height: 32px;
     color: #fff;
     border-radius: 50%;
-    background-color: ${props => props.theme.color.primaryColor}
+    background-color: ${props => props.theme.color.primaryColor};
   }
 `
