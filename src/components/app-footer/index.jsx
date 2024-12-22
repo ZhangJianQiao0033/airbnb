@@ -7,13 +7,13 @@ const AppFooter = memo(() => {
       <div className="wrapper">
         <div className="service">
         {
-          footerData.map(item => {
+          footerData.map((item, index) => {
             return (
-              <div className="group">
+              <div className="group" key={index}>
                 <div className="name">{item.name}</div>
                 {item.list.map(iten => {
                   return (
-                    <div className="item">{iten}</div>
+                    <div className="item" key={iten}>{iten}</div>
                   )
                 })}
               </div>

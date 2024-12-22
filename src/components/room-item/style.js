@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const RoomItemWrapper = styled.div`
   box-sizing: border-box;
-  width: 25%;
+  width: ${props => props.itemWidth};
   padding: 8px;
   color: #000000D9;
   .inner{
@@ -25,7 +25,7 @@ export const RoomItemWrapper = styled.div`
     }
   }
   .desc {
-      margin: 10px 0 5px;
+      margin: 10px 0 10px;
       font-size: 12px;
       color: #767676;
   }
@@ -40,12 +40,20 @@ export const RoomItemWrapper = styled.div`
     font-weight: 700;
   }
   .price {
-    margin: 8px 0;
+    margin: 15px 0;
   }
 
   .rate {
+    display: flex;
+    margin: 15px 0 0;
+    align-items: center;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 600;
     color: #484848;
+
+    .MuiRating-decimal {
+      margin-right: -2px;
+    }
   }
+
 `

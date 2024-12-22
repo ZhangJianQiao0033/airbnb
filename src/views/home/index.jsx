@@ -1,15 +1,18 @@
 import React, { memo, useEffect} from 'react'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+
 import { HomeWrapper } from './style'
 import HomeBanner from './c-cpns/home-banner'
-import SectionHeader from '@/components/section-header'
-import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { fetchHomeDataAction } from '@/store/modules/home'
-import SectionRooms from '@/components/section-rooms'
+import HomeSectionV1 from './c-cpns/home-section-v1'
+import HomeSectionV2 from './c-cpns/home-section-v2'
 
   
   const Home = memo(() => {
-    const {goodPriceInfo} = useSelector(state => ({
-      goodPriceInfo : state.home.goodPriceInfo
+    const {goodPriceInfo, highScoreInfo, discountInfo} = useSelector(state => ({
+      goodPriceInfo : state.home.goodPriceInfo,
+      highScoreInfo : state.home.highScoreInfo,
+      discountInfo: state.home.discountInfo
     }), shallowEqual)
     const dispatch = useDispatch()
 
@@ -19,12 +22,20 @@ import SectionRooms from '@/components/section-rooms'
   return (
     <HomeWrapper>
       <HomeBanner />
+     
       <div className="content">
-        <div className="good-price">
-          <SectionHeader title={goodPriceInfo.title}/>
-          <SectionRooms goodPriceList = {goodPriceInfo.list}/>
+
+        <div className="discount">
+          { discountInfo && <HomeSectionV2 title={discountInfo.title}  subtitle= {discountInfo.subtitle} infoData ={discountInfo}/>}
         </div>
-        
+
+        <div className="good-price">
+          { goodPriceInfo && <HomeSectionV1 title={goodPriceInfo.title} infoData = {goodPriceInfo.list} subtitle= {goodPriceInfo.subtitle}/>}
+        </div>
+
+        <div className="high-score">
+          { highScoreInfo && <HomeSectionV1 title={highScoreInfo.title} infoData = {highScoreInfo.list} subtitle= {highScoreInfo.subtitle}/>}
+        </div>
       </div>
     </HomeWrapper>
   )

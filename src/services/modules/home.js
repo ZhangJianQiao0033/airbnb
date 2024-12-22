@@ -5,3 +5,15 @@ export function getHomeGoodPriceData() {
     url: "/home/goodprice"
   })
 }
+
+export function getHomeHighScoreData() {
+  return ycRequest.get({
+    url: "/home/highscore"
+  })
+}
+
+export function getHomeDiscountData() {
+  return ycRequest.get({
+    url: "/home/discount"
+  })
+}

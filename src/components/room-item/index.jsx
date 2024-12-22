@@ -1,12 +1,14 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
+import { Rating } from '@mui/material'
 
 import { RoomItemWrapper } from './style'
 
+
 const RoomItem = memo((props) => {
-  const {itemData} = props
+  const {itemData, itemWidth} = props
   return (
-    <RoomItemWrapper>
+    <RoomItemWrapper itemWidth={itemWidth}>
         <div className="picture">
           <img src={itemData.picture_url} alt="" />
         </div>
@@ -20,6 +22,9 @@ const RoomItem = memo((props) => {
             ¥{itemData.price}/晚
           </div>
           <div className="rate">
+          <Rating name="half-rating-read" defaultValue={itemData.star_rating ?? 5} precision={0.1} readOnly 
+            sx={{color: itemData.star_rating_color ? itemData.star_rating_color : "#008489", fontSize: "12px", mr: "5px"} }
+          />
             <span>
               {itemData.reviews_count}
             </span>
@@ -33,7 +38,8 @@ const RoomItem = memo((props) => {
   )
 })
 RoomItem.propTypes = {
-  itemData: PropTypes.object
+  itemData: PropTypes.object,
+  itemWidth: PropTypes.string
 }
 export default RoomItem
 
