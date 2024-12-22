@@ -8,6 +8,7 @@ export const SectionFooterWrapper = styled.div`
       display: flex;
       align-items: center;
       cursor: pointer;
+      color: ${props => props.color};
       .name {
         margin-right: 6px;
         font-size: 17px;

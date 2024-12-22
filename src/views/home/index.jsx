@@ -6,6 +6,7 @@ import HomeBanner from './c-cpns/home-banner'
 import { fetchHomeDataAction } from '@/store/modules/home'
 import HomeSectionV1 from './c-cpns/home-section-v1'
 import HomeSectionV2 from './c-cpns/home-section-v2'
+import { isEmptyO } from '@/utils/is-empty-object'
 
   
   const Home = memo(() => {
@@ -26,15 +27,15 @@ import HomeSectionV2 from './c-cpns/home-section-v2'
       <div className="content">
 
         <div className="discount">
-          { discountInfo && <HomeSectionV2 title={discountInfo.title}  subtitle= {discountInfo.subtitle} infoData ={discountInfo}/>}
+          { isEmptyO(discountInfo) && <HomeSectionV2 title={discountInfo.title}  subtitle= {discountInfo.subtitle} infoData ={discountInfo}/>}
         </div>
 
         <div className="good-price">
-          { goodPriceInfo && <HomeSectionV1 title={goodPriceInfo.title} infoData = {goodPriceInfo.list} subtitle= {goodPriceInfo.subtitle}/>}
+          { isEmptyO(goodPriceInfo) && <HomeSectionV1 title={goodPriceInfo.title} infoData = {goodPriceInfo.list} subtitle= {goodPriceInfo.subtitle}/>}
         </div>
 
         <div className="high-score">
-          { highScoreInfo && <HomeSectionV1 title={highScoreInfo.title} infoData = {highScoreInfo.list} subtitle= {highScoreInfo.subtitle}/>}
+          { isEmptyO(highScoreInfo) && <HomeSectionV1 title={highScoreInfo.title} infoData = {highScoreInfo.list} subtitle= {highScoreInfo.subtitle}/>}
         </div>
       </div>
     </HomeWrapper>

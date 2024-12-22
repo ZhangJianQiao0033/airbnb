@@ -20,7 +20,7 @@ const homeSlice = createSlice({
   initialState: {
     goodPriceInfo: {},
     highScoreInfo: {},
-    discountInfo: {}
+    discountInfo: {},
   },
   reducers: {
     changeGoodPriceInfoAction(state, { payload }) {
@@ -32,11 +32,6 @@ const homeSlice = createSlice({
     changeDiscountInfoAction(state, { payload }) {
       state.discountInfo = payload
     }
-  },
-  extraReducers: (builder) => {
-    builder.addCase(fetchHomeDataAction.fulfilled, (state, {payload}) => {
-      state.goodPriceInfo = payload
-    })
   }
     
 })
