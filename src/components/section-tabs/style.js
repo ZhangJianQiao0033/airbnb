@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SectionTabsWrapper = styled.div`
-  display: flex;
+  
   
   .item {
     flex-shrink: 0;
