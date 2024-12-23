@@ -4,6 +4,7 @@ export const RoomItemWrapper = styled.div`
   box-sizing: border-box;
   width: ${(props) => props.$itemWidth};
   padding: 8px;
+  flex-shrink: 0;
   color: #000000D9;
   .inner{
     width: 100%;
@@ -27,7 +28,7 @@ export const RoomItemWrapper = styled.div`
   .desc {
       margin: 10px 0 10px;
       font-size: 12px;
-      color: #767676;
+      color: ${props => props.verifyColor};
   }
 
   .name {

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ScrollViewWrapper = styled.div`
   position: relative;
-  padding: 8px 8px 8px 0;
+  padding: 8px 0;
   .control {
     position: absolute;
     display: flex;

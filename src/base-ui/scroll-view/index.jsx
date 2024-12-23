@@ -20,7 +20,7 @@ const ScrollView = memo((props) => {
     const totalDistance = scrollWidth - clientWidth
     totalDistanceRef.current = totalDistance
     setShowRight( totalDistance > 0)
-  },[props.children])
+  },[])
 
   function controlClickHandle(isRight) {
     const posiIndex = isRight ? posiIndexRef.current + 1 : posiIndexRef.current - 1
