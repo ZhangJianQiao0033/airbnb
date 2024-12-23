@@ -23,12 +23,13 @@ export const RoomItemWrapper = styled.div`
       top: 0;
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
   .desc {
       margin: 10px 0 10px;
       font-size: 12px;
-      color: ${props => props.verifyColor};
+      color: ${props => props.$verifyColor};
   }
 
   .name {
