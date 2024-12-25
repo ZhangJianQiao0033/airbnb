@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const DetailPicturesWrapper = styled.div`
+  position: relative;
   .picutreUrls {
+    
     display: flex;
     height: 600px;
 
@@ -85,5 +87,15 @@ export const DetailPicturesWrapper = styled.div`
           }
       }
     }
+  }
+
+  .show-btn {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #fff;
   }
 `;

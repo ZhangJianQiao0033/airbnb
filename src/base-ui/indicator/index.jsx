@@ -8,6 +8,7 @@ const Indicator = memo((props) => {
   const contentRef = useRef()
   useEffect(() => {
     const selectItemEl = contentRef.current.children[selectIndex]
+    console.log(selectItemEl);
     const itemLeft = selectItemEl.offsetLeft
     const itemWidth = selectItemEl.clientWidth
     
