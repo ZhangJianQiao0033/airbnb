@@ -10,7 +10,7 @@ import Indicator from '@/base-ui/indicator';
 import classNames from 'classnames';
 
 const RoomItem = memo((props) => {
-  const { itemData, itemWidth = "25%" } = props
+  const { itemData, itemWidth = "25%", itemClick} = props
   const [selectIndex, setSelectIndex] = useState(0)
   const sliderRef = useRef()
   function controlClickHandle(isNext, event) {
@@ -22,14 +22,16 @@ const RoomItem = memo((props) => {
     setSelectIndex(newIndex)
     event.stopPropagation()
   }
-  
+  function itemClickHandle() {
+    if(itemClick) itemClick(itemData)
+  }
   const pictureElement = (
       <div className="picture">
         <img src={itemData.picture_url} alt="" />
       </div>
   )
   const sliderElement = (
-    <div className="slider">
+    <div className="slider" >
       <div className="control">
         <div className="btn left" onClick={e => controlClickHandle(false, e)}>
           <IconArrowLeft width = {30} height = {30}/>
@@ -65,7 +67,7 @@ const RoomItem = memo((props) => {
   )
 
   return (
-    <RoomItemWrapper $itemWidth={itemWidth} $verifyColor={itemData?.verify_info?.text_color || "#39576a"} >
+    <RoomItemWrapper $itemWidth={itemWidth} $verifyColor={itemData?.verify_info?.text_color || "#39576a"} onClick={itemClickHandle}>
         
       { !itemData.picture_urls ? pictureElement: sliderElement }
           
