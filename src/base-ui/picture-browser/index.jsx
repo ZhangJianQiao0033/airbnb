@@ -6,6 +6,7 @@ import IconArrowRight from '@/assets/svg/icon-arrow-right'
 import IconArrowLeft from '@/assets/svg/icon-arrow-left'
 import IconTriangleArrowBottom from '@/assets/svg/icon-triangle-arrow-bottom'
 import Indicator from '../indicator'
+import { SwitchTransition, CSSTransition } from 'react-transition-group'
 
 const PictureBrowser = memo((props) => {
 
@@ -38,7 +39,13 @@ const PictureBrowser = memo((props) => {
           </div>
         </div>
         <div className="picture">
-          <img src={pictureUrls[pictureIndex]} alt="" />
+          <SwitchTransition mode='out-in'>
+            <CSSTransition timeout={200} classNames="pic" key={pictureUrls[pictureIndex]}>
+              <img src={pictureUrls[pictureIndex]} alt="" />
+            </CSSTransition>
+            
+          </SwitchTransition>
+          
         </div>
       </div>
       <div className="bottom">
@@ -59,9 +66,12 @@ const PictureBrowser = memo((props) => {
             {
              pictureUrls.map((item, index) => {
               return (
-                <div className="item">
-                  <img src={item} alt="" />
-                </div>
+                
+                  <div className="item">
+                    <img src={item} alt="" />
+                  </div>
+                
+                
               )
              })
             }

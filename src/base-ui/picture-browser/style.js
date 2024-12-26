@@ -60,6 +60,7 @@ export const PictureBrowserWrapper = styled.div`
       width: 100%;
       max-width: 105vh;
 
+      
       img {
         position: absolute;
         top: 0;
@@ -72,16 +73,15 @@ export const PictureBrowserWrapper = styled.div`
 
       /* 动画的样式 */
       .pic-enter {
-        transform: translateX(${props => props.isNext ? "100%": "-100%"});
         opacity: 0;
+        transform: translateX(100%);
       }
-
       .pic-enter-active {
-        transform: translate(0);
         opacity: 1;
+        transform: translate(0);
         transition: all 200ms ease;
-      }
 
+      }
       .pic-exit {
         opacity: 1;
       }
